@@ -4,18 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilias El Hadi | Ingénieur Logiciel & Sécurité</title>
+    
+    <meta name="description" content="Ilias El Hadi — Ingénieur Logiciel & Cybersécurité. Élève ingénieur à Polytech Nice Sophia. Recherche alternance 24 mois dès Sept 2026.">
+    <meta property="og:title" content="Ilias El Hadi — Ingénieur Logiciel & Cybersécurité">
+    <meta property="og:description" content="Ingénieur logiciel, cybersécurité, backend. Voir projets et CV.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://el-hadi21.github.io/ilias-portrait-1200.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://elhadi21.github.io/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ilias El Hadi",
+      "jobTitle": "Ingénieur Logiciel & Cybersécurité",
+      "url": "https://El-Hadi21.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/ilias-el-hadi-m12aaaa25",
+        "https://github.com/el-hadi21"
+      ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         /* --- PALETTE (Polytech / Nice) --- */
         :root {
-            --bg-color: #f8fdff;       /* Blanc nuage */
-            --card-bg: #ffffff;        /* Blanc pur */
-            --primary: #0077b6;        /* Bleu Polytech */
-            --secondary: #0096c7;      /* Bleu Ciel vif */
-            --accent: #2a9d8f;         /* Vert Océan */
-            --text-main: #1e293b;      /* Gris sombre */
-            --text-muted: #64748b;     /* Gris moyen */
+            --bg-color: #f8fdff;
+            --card-bg: #ffffff;
+            --primary: #0077b6;
+            --secondary: #0096c7;
+            --accent: #2a9d8f;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --gradient: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
@@ -26,7 +50,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden; /* Évite le scroll horizontal */
+            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -48,7 +72,20 @@
         }
 
         .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-        .nav-links { display: flex; gap: 2rem; }
+        
+        /* Style du bouton menu (caché par défaut sur PC) */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
         .nav-links a { font-size: 0.9rem; font-weight: 500; }
         .nav-links a:hover { color: var(--secondary); }
         
@@ -61,16 +98,15 @@
         }
         .nav-btn:hover { background: var(--primary); color: white; }
 
-        /* --- HERO SECTION (MODIFIÉE POUR LA PHOTO) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; /* S'adapte à la hauteur */
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 10% 60px; /* Padding ajusté pour la navbar */
+            padding: 120px 10% 60px;
             background: radial-gradient(circle at 70% 30%, rgba(0, 150, 199, 0.08), transparent 60%);
         }
 
-        /* Conteneur flexible pour le texte et l'image */
         .hero-container {
             display: flex;
             align-items: center;
@@ -78,51 +114,29 @@
             gap: 4rem;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
-        /* Partie Texte (Gauche) */
-        .hero-content {
-            flex: 1; /* Prend l'espace disponible */
-            text-align: left; /* Alignement à gauche sur PC */
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
+        .hero-content { flex: 1; text-align: left; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; }
         .hero-content h1 span {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .hero-content p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; font-weight: 300; }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            font-weight: 300;
-        }
+        .hero-image-container { flex: 1; display: flex; justify-content: center; align-items: center; }
 
-        /* Partie Image (Droite) */
-        .hero-image-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Style de la photo d'identité */
+        /* Style de la photo d'identité responsive */
         .profile-img {
-            width: 380px;  /* Taille de l'image sur PC */
+            width: 380px;
             height: 380px;
-            object-fit: cover; /* Assure que l'image ne soit pas déformée */
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Forme organique moderne */
-            border: 5px solid white; /* Bordure blanche */
-            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.25); /* Ombre portée bleue */
-            animation: float 6s ease-in-out infinite; /* Petite animation flottante */
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.25);
+            animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -144,14 +158,9 @@
 
         /* --- SECTIONS GLOBALES --- */
         section { padding: 6rem 10%; }
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 4rem;
-            color: var(--primary);
-        }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 4rem; color: var(--primary); }
 
-        /* --- ABOUT, PROJECTS, SKILLS (Pas de changement majeur ici) --- */
+        /* --- ABOUT, PROJECTS, SKILLS --- */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .highlight-box { background: white; border-left: 5px solid var(--accent); padding: 2rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
 
@@ -172,9 +181,8 @@
 
         /* --- RESPONSIVE (Mobile) --- */
         @media (max-width: 968px) {
-            /* Sur tablette et mobile, on empile l'image et le texte */
             .hero-container {
-                flex-direction: column-reverse; /* Image au-dessus du texte */
+                flex-direction: column-reverse;
                 text-align: center;
                 gap: 3rem;
             }
@@ -182,12 +190,33 @@
             .hero-content p { margin-left: auto; margin-right: auto; }
             .hero-content h1 { font-size: 2.8rem; }
             
-            /* Image plus petite sur mobile */
+            /* Ajustement image mobile */
             .profile-img { width: 280px; height: 280px; }
             
             .about-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
             section { padding: 4rem 5%; }
+
+            /* --- MENU MOBILE MODIFIÉ --- */
+            .nav-toggle { display: block; } /* Afficher le bouton menu */
+            
+            .nav-links {
+                /* Comportement quand caché */
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Hauteur de la navbar */
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            
+            /* Comportement quand affiché (géré par JS qui enlève l'attribut hidden) */
+            .nav-links:not([hidden]) {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -195,7 +224,12 @@
 
     <nav class="navbar">
         <div class="logo">Ilias El Hadi</div>
-        <div class="nav-links">
+        
+        <button id="nav-toggle" aria-expanded="false" aria-controls="nav-links" class="nav-toggle">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+
+        <div id="nav-links" class="nav-links" hidden>
             <a href="#about">À propos</a>
             <a href="#projects">Projets</a>
             <a href="#skills">Compétences</a>
@@ -212,7 +246,11 @@
             </div>
 
             <div class="hero-image-container">
-                <img src="Untitled design (1).png" alt="Photo de profil Ilias El Hadi" class="profile-img">
+                <picture>
+                  <source type="image/avif" srcset="ilias-portrait-800.avif 800w, ilias-portrait-400.avif 400w" sizes="(max-width: 968px) 280px, 380px">
+                  <source type="image/webp" srcset="ilias-portrait-800.webp 800w, ilias-portrait-400.webp 400w">
+                  <img src="ilias-portrait-380.png" alt="Portrait d'Ilias El Hadi — Ingénieur Logiciel & Cybersécurité" width="380" height="380" class="profile-img" loading="lazy">
+                </picture>
             </div>
         </div>
     </header>
@@ -242,7 +280,7 @@
                     <span class="tag">JUnit</span>
                     <span class="tag">POO</span>
                 </div>
-                <p style="color: var(--text-muted);">Conception d'un moteur de jeu Poker robuste. Implémentation de règles métiers complexes et validation par tests unitaires </p>
+                <p style="color: var(--text-muted);">Conception d'un moteur de jeu Poker robuste. Implémentation de règles métiers complexes et validation par tests unitaires.</p>
                 <a href="https://github.com/salondryas/Jeu-de-Poker" target="_blank" class="project-link">Voir le code <i class="fas fa-arrow-right"></i></a>
             </article>
 
@@ -299,6 +337,34 @@
         </div>
         <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Ilias El Hadi. Élève Ingénieur Polytech Nice Sophia.</p>
     </footer>
+
+    <script>
+    const btn = document.getElementById('nav-toggle');
+    const nav = document.getElementById('nav-links');
+    
+    // Au chargement, on vérifie la taille de l'écran pour gérer l'attribut hidden
+    function checkScreenSize() {
+        if (window.innerWidth > 968) {
+            nav.hidden = false; // Toujours afficher sur grand écran
+        } else {
+            nav.hidden = true; // Cacher par défaut sur mobile
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    }
+    
+    // Vérification initiale
+    checkScreenSize();
+
+    // Gestion du clic
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.hidden = expanded; // Si c'était ouvert (true), on cache (hidden=true)
+    });
+
+    // Optionnel: Réinitialiser si on redimensionne la fenêtre
+    window.addEventListener('resize', checkScreenSize);
+    </script>
 
 </body>
 </html>
