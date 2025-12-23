@@ -3,58 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ilias El Hadi</title>
+    <title>Portfolio - Ilias El Hadi | Ingénieur Logiciel & Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; background-color: #f4f4f9; }
-        header { background: #0056b3; color: white; padding: 2rem 0; text-align: center; }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { font-size: 1.2rem; opacity: 0.9; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px; }
-        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h2 { color: #0056b3; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
-        .btn { display: inline-block; padding: 10px 20px; background: #0056b3; color: white; text-decoration: none; border-radius: 5px; margin-top: 10px; }
-        .btn:hover { background: #004494; }
-        footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 20px; }
+        :root {
+            --primary-color: #2563eb; /* Bleu moderne */
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        header h1 { margin: 0; font-size: 3rem; font-weight: 600; letter-spacing: -1px; }
+        header p { font-size: 1.25rem; opacity: 0.95; margin-top: 10px; font-weight: 300; }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 20px;
+            margin-top: -40px; /* Chevauchement esthétique */
+        }
+
+        /* --- Cards Global Style --- */
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        /* Effet de survol uniquement sur les projets */
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #334155;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Tags pour les technologies --- */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            margin-bottom: 15px;
+        }
+        .tech-tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* --- Boutons --- */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .btn:hover { background: var(--secondary-color); }
+        
+        .project-details {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+
+        hr { border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #1e293b;
+            color: #94a3b8;
+            margin-top: 40px;
+        }
+        footer a { color: white; text-decoration: underline; }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .container { margin-top: -20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Ilias El Hadi</h1>
-        <p>Élève Ingénieur en Informatique - Polytech Nice Sophia</p>
-        <p>Spécialisation : Développement Logiciel & Cybersécurité</p>
+        <p>Élève Ingénieur - Polytech Nice Sophia</p>
+        <p>Développement Logiciel | Data Science | Cybersécurité</p>
     </header>
 
     <div class="container">
         <section class="card">
             <h2>À Propos</h2>
-            <p>Étudiant passionné par la conception algorithmique et les systèmes robustes. Issu d'une formation rigoureuse en Classes Préparatoires (MP), je combine théorie mathématique et compétences pratiques en développement (Python, Java, C).</p>
-            <p>📍 Recherche une alternance de 24 mois à partir de Septembre 2026.</p>
+            <p>Étudiant passionné par la conception algorithmique et les systèmes robustes. Issu d'une formation rigoureuse en Classes Préparatoires (MP), je combine théorie mathématique et compétences pratiques en ingénierie logicielle.</p>
+            <p style="background-color: #dbeafe; padding: 10px; border-radius: 6px; border-left: 4px solid var(--primary-color);">
+                <strong>📍 Objectif :</strong> Recherche une alternance de 24 mois à partir de Septembre 2026.
+            </p>
         </section>
 
         <section class="card">
-            <h2>Mes Projets</h2>
+            <h2>Réalisations Techniques</h2>
             
-            <h3>🃏 Jeu de Poker (Texas Hold'em)</h3>
-            <p>Conception complète de la logique de jeu et de l'interface en Python. Architecture orientée objet et gestion des événements.</p>
-            <a href="https://github.com/salondryas/Jeu-de-Poker" class="btn" target="_blank">Voir le code sur GitHub</a>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            <div class="project-card">
+                <h3>🃏 Moteur de Jeu de Poker (Texas Hold'em)</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">JUnit</span>
+                    <span class="tech-tag">POO</span>
+                    <span class="tech-tag">Algorithmique</span>
+                </div>
+                <div class="project-details">
+                    Développement complet d'un moteur de jeu en Java. Modélisation orientée objet des entités (Cartes, Mains, Joueurs) et implémentation d'algorithmes d'évaluation des combinaisons. Validation de la robustesse des règles métier via des tests unitaires.
+                </div>
+                <a href="https://github.com/salondryas/Jeu-de-Poker" class="btn" target="_blank">Voir le code sur GitHub</a>
+            </div>
 
-            <h3>👁️ Analyse Vidéo Sportive par IA</h3>
-            <p>Pipeline de détection et de suivi automatique des joueurs utilisant CNN, YOLO et OpenCV. Projet personnel alliant Vision par Ordinateur et Deep Learning.</p>
-            <a href="#" class="btn">Voir la démo</a>
+            <hr>
+
+            <div class="project-card">
+                <h3>👁️ Analyse Vidéo Sportive par IA</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">YOLO (Deep Learning)</span>
+                    <span class="tech-tag">Data Processing</span>
+                </div>
+                <div class="project-details">
+                    Conception d'un pipeline intelligent pour automatiser le montage vidéo dans le sport amateur.
+                    <ul style="padding-left: 20px; margin-top: 5px;">
+                        <li>Détection et suivi des joueurs image par image via réseaux de neurones (YOLO).</li>
+                        <li>Algorithme de segmentation par analyse colorimétrique (détection des maillots) pour distinguer les équipes.</li>
+                        <li>Extraction automatique des séquences de jeu pertinentes.</li>
+                    </ul>
+                </div>
+                </div>
+
+            <hr>
+
+            <div class="project-card">
+                <h3>📐 Détection de Formes (Transformée de Hough)</h3>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Traitement du Signal</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Mathématiques</span>
+                </div>
+                <div class="project-details">
+                    Optimisation mathématique de l'algorithme de la Transformée de Hough pour la détection de lignes droites dans des images bruitées. Analyse de la complexité temporelle et implémentation de matrices d'accumulation pour améliorer la précision de détection.
+                </div>
+            </div>
         </section>
 
         <section class="card">
             <h2>Compétences Techniques</h2>
-            <p><strong>Langages :</strong> Python, Java, C, SQL</p>
-            <p><strong>Data & IA :</strong> NumPy, Pandas, OpenCV, YOLO</p>
-            <p><strong>Outils :</strong> Git, IntelliJ, Visual Studio, Linux</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div>
+                    <strong>Langages</strong>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">SQL</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Data & IA</strong>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Pandas / NumPy</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">YOLO</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Outils & Env.</strong>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Git / GitHub</span>
+                        <span class="tech-tag">IntelliJ / VS Code</span>
+                        <span class="tech-tag">Linux</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>Contact : ilyass.elhadi2020@gmail.com | <a href="https://www.linkedin.com/in/ilias-el-hadi-m12aaaa25" style="color: white;">LinkedIn</a></p>
+        <p>Contact : ilyass.elhadi2020@gmail.com</p>
+        <p>
+            <a href="https://www.linkedin.com/in/ilias-el-hadi-m12aaaa25" target="_blank">LinkedIn</a> • 
+            <a href="https://github.com/el-hadi21" target="_blank">GitHub</a>
+        </p>
     </footer>
 
 </body>
