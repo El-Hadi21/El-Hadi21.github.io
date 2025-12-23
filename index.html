@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ilias El Hadi | Ingénieur Logiciel & Sécurité</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- NOUVELLE PALETTE (Polytech / Nice) --- */
+        /* --- PALETTE (Polytech / Nice) --- */
         :root {
-            --bg-color: #f8fdff;       /* Blanc très légèrement bleuté (Nuage) */
-            --card-bg: #ffffff;        /* Blanc pur pour les cartes */
-            --primary: #0077b6;        /* Bleu Polytech / Méditerranée */
+            --bg-color: #f8fdff;       /* Blanc nuage */
+            --card-bg: #ffffff;        /* Blanc pur */
+            --primary: #0077b6;        /* Bleu Polytech */
             --secondary: #0096c7;      /* Bleu Ciel vif */
-            --accent: #2a9d8f;         /* Vert Océan / Pinède (Touche nature) */
-            --text-main: #1e293b;      /* Gris sombre pour le texte (lisibilité) */
+            --accent: #2a9d8f;         /* Vert Océan */
+            --text-main: #1e293b;      /* Gris sombre */
             --text-muted: #64748b;     /* Gris moyen */
-            --gradient: linear-gradient(135deg, var(--primary), var(--accent)); /* Dégradé Bleu vers Vert */
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,6 +26,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden; /* Évite le scroll horizontal */
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -36,27 +37,21 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95); /* Fond blanc semi-transparent */
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 119, 182, 0.1); /* Ombre bleue légère */
+            box-shadow: 0 2px 15px rgba(0, 119, 182, 0.1);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-main); }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; }
         .nav-links a:hover { color: var(--secondary); }
         
-        /* Bouton Contact dans la nav */
         .nav-btn {
             padding: 8px 20px;
             border: 2px solid var(--primary);
@@ -66,23 +61,35 @@
         }
         .nav-btn:hover { background: var(--primary); color: white; }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (MODIFIÉE POUR LA PHOTO) --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh; /* S'adapte à la hauteur */
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            /* Fond subtil rappelant la mer/ciel */
-            background: radial-gradient(circle at 50% 50%, rgba(0, 150, 199, 0.05), transparent 70%);
+            padding: 120px 10% 60px; /* Padding ajusté pour la navbar */
+            background: radial-gradient(circle at 70% 30%, rgba(0, 150, 199, 0.08), transparent 60%);
+        }
+
+        /* Conteneur flexible pour le texte et l'image */
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Partie Texte (Gauche) */
+        .hero-content {
+            flex: 1; /* Prend l'espace disponible */
+            text-align: left; /* Alignement à gauche sur PC */
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--text-main);
         }
         
         .hero-content h1 span {
@@ -95,10 +102,33 @@
             font-size: 1.25rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
             font-weight: 300;
+        }
+
+        /* Partie Image (Droite) */
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style de la photo d'identité */
+        .profile-img {
+            width: 380px;  /* Taille de l'image sur PC */
+            height: 380px;
+            object-fit: cover; /* Assure que l'image ne soit pas déformée */
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Forme organique moderne */
+            border: 5px solid white; /* Bordure blanche */
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.25); /* Ombre portée bleue */
+            animation: float 6s ease-in-out infinite; /* Petite animation flottante */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
         .btn-primary {
@@ -108,13 +138,12 @@
             color: white;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 10px 25px rgba(42, 157, 143, 0.3); /* Ombre verte/bleue */
+            box-shadow: 0 10px 25px rgba(42, 157, 143, 0.3);
         }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(42, 157, 143, 0.4); }
 
-        /* --- SECTIONS --- */
+        /* --- SECTIONS GLOBALES --- */
         section { padding: 6rem 10%; }
-        
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -122,99 +151,40 @@
             color: var(--primary);
         }
 
-        /* --- ABOUT --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .highlight-box {
-            background: white;
-            border-left: 5px solid var(--accent);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
+        /* --- ABOUT, PROJECTS, SKILLS (Pas de changement majeur ici) --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .highlight-box { background: white; border-left: 5px solid var(--accent); padding: 2rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
 
-        /* --- PROJECTS --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0; /* Bordure très légère */
-            transition: 0.3s;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--secondary);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
-        
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .project-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-8px); border-color: var(--secondary); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .project-card h3 { color: var(--primary); margin-bottom: 1rem; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
-        .tag {
-            font-size: 0.75rem;
-            padding: 5px 12px;
-            border-radius: 20px;
-            background: #e0f2fe; /* Bleu très pâle */
-            color: var(--primary);
-            font-weight: 600;
-        }
+        .tag { font-size: 0.75rem; padding: 5px 12px; border-radius: 20px; background: #e0f2fe; color: var(--primary); font-weight: 600; }
+        .project-link { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
 
-        .project-link {
-            color: var(--accent);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .project-link:hover { text-decoration: underline; }
-
-        /* --- SKILLS --- */
-        .skills-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-        .skill-category i {
-            font-size: 2.5rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-        }
-        .skill-category h3 { margin-bottom: 1rem; color: var(--text-main); }
+        .skills-container { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; text-align: center; }
+        .skill-category i { font-size: 2.5rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.5rem; }
         .skill-list { color: var(--text-muted); line-height: 1.8; }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background: var(--primary);
-            color: white;
-            margin-top: 4rem;
-        }
+        footer { text-align: center; padding: 3rem; background: var(--primary); color: white; margin-top: 4rem; }
         .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; opacity: 0.8; }
-        .social-links a:hover { opacity: 1; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
+        /* --- RESPONSIVE (Mobile) --- */
+        @media (max-width: 968px) {
+            /* Sur tablette et mobile, on empile l'image et le texte */
+            .hero-container {
+                flex-direction: column-reverse; /* Image au-dessus du texte */
+                text-align: center;
+                gap: 3rem;
+            }
+            .hero-content { text-align: center; }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-content h1 { font-size: 2.8rem; }
+            
+            /* Image plus petite sur mobile */
+            .profile-img { width: 280px; height: 280px; }
+            
             .about-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             section { padding: 4rem 5%; }
@@ -234,10 +204,16 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Ingénieur Logiciel & <br><span>Cybersécurité</span></h1>
-            <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par la conception d'architectures sécurisées et le développement logiciel avancé.</p>
-            <a href="#projects" class="btn-primary">Découvrir mes travaux</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Ingénieur Logiciel & <br><span>Cybersécurité</span></h1>
+                <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par la conception d'architectures sécurisées et le développement logiciel avancé.</p>
+                <a href="#projects" class="btn-primary">Découvrir mes travaux</a>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="Capture d'écran 2025-10-08 001500.png" alt="Photo de profil Ilias El Hadi" class="profile-img">
+            </div>
         </div>
     </header>
 
@@ -259,7 +235,6 @@
     <section id="projects">
         <h2 class="section-title">Réalisations</h2>
         <div class="projects-grid">
-            
             <article class="project-card">
                 <h3><i class="fas fa-cube"></i> Moteur de Poker</h3>
                 <div class="tech-tags">
@@ -292,38 +267,26 @@
                 <p style="color: var(--text-muted);">Optimisation mathématique pour la détection de formes géométriques dans des images bruitées. Analyse de complexité temporelle.</p>
                 <span class="project-link" style="opacity: 0.6; cursor: default; color: var(--text-muted);">Recherche Académique</span>
             </article>
-
         </div>
     </section>
 
-    <section id="skills" style="background-color: #f0f9ff;"> <h2 class="section-title">Stack Technique</h2>
+    <section id="skills" style="background-color: #f0f9ff;">
+        <h2 class="section-title">Stack Technique</h2>
         <div class="skills-container">
             <div class="skill-category">
                 <i class="fas fa-laptop-code"></i>
                 <h3>Développement</h3>
-                <div class="skill-list">
-                    Java, Python, C<br>
-                    Architecture Logicielle<br>
-                    Programmation Système
-                </div>
+                <div class="skill-list">Java, Python, C<br>Architecture Logicielle<br>Programmation Système</div>
             </div>
             <div class="skill-category">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Sécurité & Data</h3>
-                <div class="skill-list">
-                    OpenCV, YOLO<br>
-                    Traitement du Signal<br>
-                    Protocoles Réseaux
-                </div>
+                <div class="skill-list">OpenCV, YOLO<br>Traitement du Signal<br>Protocoles Réseaux</div>
             </div>
             <div class="skill-category">
                 <i class="fas fa-terminal"></i>
                 <h3>Outils</h3>
-                <div class="skill-list">
-                    Git & GitHub<br>
-                    Environnement Linux<br>
-                    IntelliJ, VS Code
-                </div>
+                <div class="skill-list">Git & GitHub<br>Environnement Linux<br>IntelliJ, VS Code</div>
             </div>
         </div>
     </section>
