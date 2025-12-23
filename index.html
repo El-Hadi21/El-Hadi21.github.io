@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ilias El Hadi | Ingénieur Logiciel & Data</title>
+    <title>Ilias El Hadi | Ingénieur Logiciel & Sécurité</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- VARIABLES & RESET --- */
+        /* --- NOUVELLE PALETTE (Polytech / Nice) --- */
         :root {
-            --bg-color: #0f172a;       /* Bleu nuit très sombre */
-            --card-bg: #1e293b;        /* Gris bleuté pour les cartes */
-            --primary: #3b82f6;        /* Bleu électrique */
-            --accent: #06b6d4;         /* Cyan pour les dégradés */
-            --text-main: #f8fafc;      /* Blanc cassé */
-            --text-muted: #94a3b8;     /* Gris clair */
-            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --bg-color: #f8fdff;       /* Blanc très légèrement bleuté (Nuage) */
+            --card-bg: #ffffff;        /* Blanc pur pour les cartes */
+            --primary: #0077b6;        /* Bleu Polytech / Méditerranée */
+            --secondary: #0096c7;      /* Bleu Ciel vif */
+            --accent: #2a9d8f;         /* Vert Océan / Pinède (Touche nature) */
+            --text-main: #1e293b;      /* Gris sombre pour le texte (lisibilité) */
+            --text-muted: #64748b;     /* Gris moyen */
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent)); /* Dégradé Bleu vers Vert */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,7 +26,6 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -36,27 +36,35 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(255, 255, 255, 0.95); /* Fond blanc semi-transparent */
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 2px 15px rgba(0, 119, 182, 0.1); /* Ombre bleue légère */
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary);
         }
 
         .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-main); }
+        .nav-links a:hover { color: var(--secondary); }
+        
+        /* Bouton Contact dans la nav */
+        .nav-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        .nav-btn:hover { background: var(--primary); color: white; }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -66,13 +74,15 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
-            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%);
+            /* Fond subtil rappelant la mer/ciel */
+            background: radial-gradient(circle at 50% 50%, rgba(0, 150, 199, 0.05), transparent 70%);
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
         }
         
         .hero-content h1 span {
@@ -84,39 +94,32 @@
         .hero-content p {
             font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
         }
 
-        .btn {
+        .btn-primary {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 35px;
             background: var(--gradient);
             color: white;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 25px rgba(42, 157, 143, 0.3); /* Ombre verte/bleue */
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(42, 157, 143, 0.4); }
 
-        /* --- SECTIONS GLOBALES --- */
-        section { padding: 5rem 10%; }
+        /* --- SECTIONS --- */
+        section { padding: 6rem 10%; }
+        
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            margin: 10px auto;
-            border-radius: 2px;
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+            color: var(--primary);
         }
 
         /* --- ABOUT --- */
@@ -126,204 +129,199 @@
             gap: 4rem;
             align-items: center;
         }
-        .about-text p { margin-bottom: 1rem; color: var(--text-muted); }
         .highlight-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
+            background: white;
+            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         /* --- PROJECTS --- */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .project-card {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid #e2e8f0; /* Bordure très légère */
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        .project-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
-        .project-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        .project-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
         
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
         .tag {
             font-size: 0.75rem;
-            padding: 4px 12px;
+            padding: 5px 12px;
             border-radius: 20px;
-            background: rgba(255,255,255,0.05);
+            background: #e0f2fe; /* Bleu très pâle */
             color: var(--primary);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .project-link {
-            color: var(--text-main);
+            color: var(--accent);
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
-        .project-link:hover { color: var(--accent); }
+        .project-link:hover { text-decoration: underline; }
 
         /* --- SKILLS --- */
         .skills-container {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 16px;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
             text-align: center;
         }
         .skill-category i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
         }
-        .skill-list { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+        .skill-category h3 { margin-bottom: 1rem; color: var(--text-main); }
+        .skill-list { color: var(--text-muted); line-height: 1.8; }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 2rem;
-            background: #020617;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem;
+            background: var(--primary);
+            color: white;
+            margin-top: 4rem;
         }
-        .social-links { margin-bottom: 1rem; }
-        .social-links a {
-            font-size: 1.5rem;
-            margin: 0 10px;
-            color: var(--text-main);
-        }
-        .social-links a:hover { color: var(--primary); }
+        .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; opacity: 0.8; }
+        .social-links a:hover { opacity: 1; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.5rem; }
             .about-grid { grid-template-columns: 1fr; }
-            .navbar { padding: 1rem; }
-            .nav-links { display: none; } /* Simplification mobile */
-            section { padding: 3rem 5%; }
+            .nav-links { display: none; }
+            section { padding: 4rem 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Ilias El Hadi.</div>
+        <div class="logo">Ilias El Hadi</div>
         <div class="nav-links">
             <a href="#about">À propos</a>
             <a href="#projects">Projets</a>
             <a href="#skills">Compétences</a>
-            <a href="mailto:ilyass.elhadi2020@gmail.com" class="btn" style="padding: 8px 20px; font-size: 0.85rem;">Me Contacter</a>
+            <a href="mailto:ilyass.elhadi2020@gmail.com" class="nav-btn">Me Contacter</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Développeur & <br><span>Expert Technologie</span></h1>
-            <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par l'Algorithmique Complexe, l'Intelligence Artificielle et la Cybersécurité.</p>
-            <a href="#projects" class="btn">Voir mes réalisations</a>
+            <h1>Ingénieur Logiciel & <br><span>Cybersécurité</span></h1>
+            <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par la conception d'architectures sécurisées et le développement logiciel avancé.</p>
+            <a href="#projects" class="btn-primary">Découvrir mes travaux</a>
         </div>
     </header>
 
     <section id="about">
-        <h2 class="section-title">Qui suis-je ?</h2>
+        <h2 class="section-title">À propos de moi</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>Je suis un étudiant passionné par la conception de systèmes robustes. Issu d'une formation rigoureuse en Classes Préparatoires (MP), je combine une solide base théorique en mathématiques avec des compétences pratiques en ingénierie logicielle.</p>
-                <p>Mon objectif est de créer des solutions technologiques innovantes qui résolvent des problèmes concrets.</p>
+                <p>Mon parcours en Classes Préparatoires aux Grandes Écoles (CPGE - MP) m'a forgé un esprit analytique rigoureux. Aujourd'hui, je mets cette rigueur au service de l'ingénierie logicielle.</p>
+                <p>Je m'intéresse particulièrement à la création de systèmes fiables, allant de l'algorithmique complexe aux protocoles de sécurité modernes.</p>
             </div>
             <div class="highlight-box">
-                <h3>📍 Recherche d'Alternance</h3>
-                <p>Disponible à partir de Septembre 2026 pour une durée de 24 mois.</p>
-                <p style="margin-top: 10px; font-weight: 600; color: var(--text-main);">Spécialisation : Développement Logiciel & Data</p>
+                <h3 style="color: var(--primary);">📍 Objectif Professionnel</h3>
+                <p style="margin-top: 10px; color: var(--text-muted);">Recherche d'une <strong>alternance de 24 mois</strong> à partir de Septembre 2026.</p>
+                <p style="margin-top: 5px; font-weight: 500;">Secteurs : Cybersécurité, Backend, Data.</p>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Projets Récents</h2>
+        <h2 class="section-title">Réalisations</h2>
         <div class="projects-grid">
             
             <article class="project-card">
-                <h3><i class="fas fa-gamepad"></i> Moteur de Poker</h3>
+                <h3><i class="fas fa-cube"></i> Moteur de Poker</h3>
                 <div class="tech-tags">
                     <span class="tag">Java</span>
                     <span class="tag">JUnit</span>
                     <span class="tag">POO</span>
                 </div>
-                <p>Architecture complète d'un moteur de jeu Texas Hold'em. Focus sur la modélisation orientée objet, la gestion des règles complexes et la fiabilité via tests unitaires.</p>
-                <a href="https://github.com/salondryas/Jeu-de-Poker" target="_blank" class="project-link">Voir sur GitHub <i class="fas fa-arrow-right"></i></a>
+                <p style="color: var(--text-muted);">Conception d'un moteur de jeu Texas Hold'em robuste. Implémentation de règles métiers complexes et validation par tests unitaires intensifs.</p>
+                <a href="https://github.com/salondryas/Jeu-de-Poker" target="_blank" class="project-link">Voir le code <i class="fas fa-arrow-right"></i></a>
             </article>
 
             <article class="project-card">
-                <h3><i class="fas fa-video"></i> Vision par IA (Sport)</h3>
+                <h3><i class="fas fa-eye"></i> Vision & IA Sportive</h3>
                 <div class="tech-tags">
                     <span class="tag">Python</span>
                     <span class="tag">OpenCV</span>
-                    <span class="tag">YOLO Deep Learning</span>
+                    <span class="tag">YOLO</span>
                 </div>
-                <p>Pipeline d'analyse vidéo automatisé : détection de joueurs par réseaux de neurones et segmentation d'équipes par colorimétrie pour le montage automatique.</p>
-                <span class="project-link" style="opacity: 0.6; cursor: default;">Projet Privé</span>
+                <p style="color: var(--text-muted);">Système intelligent de découpage vidéo. Utilisation de réseaux de neurones pour la détection de joueurs et segmentation par couleur.</p>
+                <span class="project-link" style="opacity: 0.6; cursor: default; color: var(--text-muted);">Projet Privé</span>
             </article>
 
             <article class="project-card">
-                <h3><i class="fas fa-wave-square"></i> Transformée de Hough</h3>
+                <h3><i class="fas fa-chart-line"></i> Algorithme de Hough</h3>
                 <div class="tech-tags">
                     <span class="tag">Python</span>
                     <span class="tag">NumPy</span>
-                    <span class="tag">Maths Appliquées</span>
+                    <span class="tag">Maths</span>
                 </div>
-                <p>Optimisation algorithmique de la détection de lignes droites dans des images bruitées. Analyse de complexité et implémentation matricielle avancée.</p>
-                <span class="project-link" style="opacity: 0.6; cursor: default;">Projet de Recherche</span>
+                <p style="color: var(--text-muted);">Optimisation mathématique pour la détection de formes géométriques dans des images bruitées. Analyse de complexité temporelle.</p>
+                <span class="project-link" style="opacity: 0.6; cursor: default; color: var(--text-muted);">Recherche Académique</span>
             </article>
 
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">Expertise Technique</h2>
+    <section id="skills" style="background-color: #f0f9ff;"> <h2 class="section-title">Stack Technique</h2>
         <div class="skills-container">
             <div class="skill-category">
-                <i class="fas fa-code"></i>
+                <i class="fas fa-laptop-code"></i>
                 <h3>Développement</h3>
                 <div class="skill-list">
                     Java, Python, C<br>
-                    Algorithmique Avancée<br>
-                    Programmation Orientée Objet
+                    Architecture Logicielle<br>
+                    Programmation Système
                 </div>
             </div>
             <div class="skill-category">
-                <i class="fas fa-brain"></i>
-                <h3>Data & IA</h3>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Sécurité & Data</h3>
                 <div class="skill-list">
                     OpenCV, YOLO<br>
-                    Pandas, NumPy<br>
-                    Traitement du Signal
+                    Traitement du Signal<br>
+                    Protocoles Réseaux
                 </div>
             </div>
             <div class="skill-category">
-                <i class="fas fa-tools"></i>
+                <i class="fas fa-terminal"></i>
                 <h3>Outils</h3>
                 <div class="skill-list">
                     Git & GitHub<br>
-                    Linux / Bash<br>
+                    Environnement Linux<br>
                     IntelliJ, VS Code
                 </div>
             </div>
@@ -336,7 +334,7 @@
             <a href="https://github.com/el-hadi21" target="_blank"><i class="fab fa-github"></i></a>
             <a href="mailto:ilyass.elhadi2020@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; 2024 Ilias El Hadi. Tous droits réservés.</p>
+        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Ilias El Hadi. Élève Ingénieur Polytech Nice Sophia.</p>
     </footer>
 
 </body>
