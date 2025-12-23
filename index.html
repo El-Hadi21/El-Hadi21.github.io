@@ -3,242 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ilias El Hadi | Ingénieur Logiciel & Data</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Ilias El Hadi | Ingénieur Logiciel & Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- VARIABLES & RESET --- */
         :root {
-            --primary-color: #2563eb; /* Bleu moderne */
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --bg-color: #f8fafc;
-            --text-color: #1e293b;
-            --card-bg: #ffffff;
+            --bg-color: #0f172a;       /* Bleu nuit très sombre */
+            --card-bg: #1e293b;        /* Gris bleuté pour les cartes */
+            --primary: #3b82f6;        /* Bleu électrique */
+            --accent: #06b6d4;         /* Cyan pour les dégradés */
+            --text-main: #f8fafc;      /* Blanc cassé */
+            --text-muted: #94a3b8;     /* Gris clair */
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            color: var(--text-color);
             background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* --- Header / Hero Section --- */
-        header {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            padding: 4rem 1rem;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-        header h1 { margin: 0; font-size: 3rem; font-weight: 600; letter-spacing: -1px; }
-        header p { font-size: 1.25rem; opacity: 0.95; margin-top: 10px; font-weight: 300; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 0 20px;
-            margin-top: -40px; /* Chevauchement esthétique */
-        }
-
-        /* --- Cards Global Style --- */
-        .card {
-            background: var(--card-bg);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        /* Effet de survol uniquement sur les projets */
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        /* --- NAVIGATION --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        h2 {
-            color: var(--secondary-color);
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
-            margin-top: 0;
-            font-size: 1.8rem;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        h3 {
-            color: #334155;
-            margin-bottom: 0.5rem;
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent 40%);
         }
 
-        /* --- Tags pour les technologies --- */
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-            margin-bottom: 15px;
-        }
-        .tech-tag {
-            background-color: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* --- Boutons --- */
-        .btn {
-            display: inline-block;
-            padding: 10px 24px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: background 0.3s;
-            margin-top: 10px;
-        }
-        .btn:hover { background: var(--secondary-color); }
-        
-        .project-details {
-            font-size: 0.95rem;
-            color: #475569;
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
             margin-bottom: 1rem;
         }
+        
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        hr { border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0; }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        /* --- Footer --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6); }
+
+        /* --- SECTIONS GLOBALES --- */
+        section { padding: 5rem 10%; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* --- ABOUT --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-text p { margin-bottom: 1rem; color: var(--text-muted); }
+        .highlight-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .project-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+        .tag {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--text-main);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .project-link:hover { color: var(--accent); }
+
+        /* --- SKILLS --- */
+        .skills-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .skill-category i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .skill-list { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+
+        /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            background: #1e293b;
-            color: #94a3b8;
-            margin-top: 40px;
+            padding: 2rem;
+            background: #020617;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        footer a { color: white; text-decoration: underline; }
+        .social-links { margin-bottom: 1rem; }
+        .social-links a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--text-main);
+        }
+        .social-links a:hover { color: var(--primary); }
 
-        /* --- Responsive --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .container { margin-top: -20px; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .navbar { padding: 1rem; }
+            .nav-links { display: none; } /* Simplification mobile */
+            section { padding: 3rem 5%; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Ilias El Hadi</h1>
-        <p>Élève Ingénieur - Polytech Nice Sophia</p>
-        <p>Développement Logiciel | Data Science | Cybersécurité</p>
+    <nav class="navbar">
+        <div class="logo">Ilias El Hadi.</div>
+        <div class="nav-links">
+            <a href="#about">À propos</a>
+            <a href="#projects">Projets</a>
+            <a href="#skills">Compétences</a>
+            <a href="mailto:ilyass.elhadi2020@gmail.com" class="btn" style="padding: 8px 20px; font-size: 0.85rem;">Me Contacter</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Développeur & <br><span>Expert Technologie</span></h1>
+            <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par l'Algorithmique Complexe, l'Intelligence Artificielle et la Cybersécurité.</p>
+            <a href="#projects" class="btn">Voir mes réalisations</a>
+        </div>
     </header>
 
-    <div class="container">
-        <section class="card">
-            <h2>À Propos</h2>
-            <p>Étudiant passionné par la conception algorithmique et les systèmes robustes. Issu d'une formation rigoureuse en Classes Préparatoires (MP), je combine théorie mathématique et compétences pratiques en ingénierie logicielle.</p>
-            <p style="background-color: #dbeafe; padding: 10px; border-radius: 6px; border-left: 4px solid var(--primary-color);">
-                <strong>📍 Objectif :</strong> Recherche une alternance de 24 mois à partir de Septembre 2026.
-            </p>
-        </section>
+    <section id="about">
+        <h2 class="section-title">Qui suis-je ?</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Je suis un étudiant passionné par la conception de systèmes robustes. Issu d'une formation rigoureuse en Classes Préparatoires (MP), je combine une solide base théorique en mathématiques avec des compétences pratiques en ingénierie logicielle.</p>
+                <p>Mon objectif est de créer des solutions technologiques innovantes qui résolvent des problèmes concrets.</p>
+            </div>
+            <div class="highlight-box">
+                <h3>📍 Recherche d'Alternance</h3>
+                <p>Disponible à partir de Septembre 2026 pour une durée de 24 mois.</p>
+                <p style="margin-top: 10px; font-weight: 600; color: var(--text-main);">Spécialisation : Développement Logiciel & Data</p>
+            </div>
+        </div>
+    </section>
 
-        <section class="card">
-            <h2>Réalisations Techniques</h2>
+    <section id="projects">
+        <h2 class="section-title">Projets Récents</h2>
+        <div class="projects-grid">
             
-            <div class="project-card">
-                <h3>🃏 Jeu de Poker </h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Java</span>
-                    <span class="tech-tag">JUnit</span>
-                    <span class="tech-tag">POO</span>
-                    <span class="tech-tag">Algorithmique</span>
+            <article class="project-card">
+                <h3><i class="fas fa-gamepad"></i> Moteur de Poker</h3>
+                <div class="tech-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">JUnit</span>
+                    <span class="tag">POO</span>
                 </div>
-                <div class="project-details">
-                    Développement complet d'un moteur de jeu en Java. Modélisation orientée objet des entités (Cartes, Mains, Joueurs) et implémentation d'algorithmes d'évaluation des combinaisons. Validation de la robustesse des règles métier via des tests unitaires.
-                </div>
-                <a href="https://github.com/salondryas/Jeu-de-Poker" class="btn" target="_blank">Voir le code sur GitHub</a>
-            </div>
+                <p>Architecture complète d'un moteur de jeu Texas Hold'em. Focus sur la modélisation orientée objet, la gestion des règles complexes et la fiabilité via tests unitaires.</p>
+                <a href="https://github.com/salondryas/Jeu-de-Poker" target="_blank" class="project-link">Voir sur GitHub <i class="fas fa-arrow-right"></i></a>
+            </article>
 
-            <hr>
+            <article class="project-card">
+                <h3><i class="fas fa-video"></i> Vision par IA (Sport)</h3>
+                <div class="tech-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">YOLO Deep Learning</span>
+                </div>
+                <p>Pipeline d'analyse vidéo automatisé : détection de joueurs par réseaux de neurones et segmentation d'équipes par colorimétrie pour le montage automatique.</p>
+                <span class="project-link" style="opacity: 0.6; cursor: default;">Projet Privé</span>
+            </article>
 
-            <div class="project-card">
-                <h3>👁️ Analyse Vidéo Sportive par IA</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">OpenCV</span>
-                    <span class="tech-tag">YOLO (Deep Learning)</span>
-                    <span class="tech-tag">Data Processing</span>
+            <article class="project-card">
+                <h3><i class="fas fa-wave-square"></i> Transformée de Hough</h3>
+                <div class="tech-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">Maths Appliquées</span>
                 </div>
-                <div class="project-details">
-                    Conception d'un pipeline intelligent pour automatiser le montage vidéo dans le sport amateur.
-                    <ul style="padding-left: 20px; margin-top: 5px;">
-                        <li>Détection et suivi des joueurs image par image via réseaux de neurones (YOLO).</li>
-                        <li>Algorithme de segmentation par analyse colorimétrique (détection des maillots) pour distinguer les équipes.</li>
-                        <li>Extraction automatique des séquences de jeu pertinentes.</li>
-                    </ul>
-                </div>
-                </div>
+                <p>Optimisation algorithmique de la détection de lignes droites dans des images bruitées. Analyse de complexité et implémentation matricielle avancée.</p>
+                <span class="project-link" style="opacity: 0.6; cursor: default;">Projet de Recherche</span>
+            </article>
 
-            <hr>
+        </div>
+    </section>
 
-            <div class="project-card">
-                <h3>📐 Détection de Formes (Transformée de Hough)</h3>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Traitement du Signal</span>
-                    <span class="tech-tag">NumPy</span>
-                    <span class="tech-tag">Mathématiques</span>
-                </div>
-                <div class="project-details">
-                    Optimisation mathématique de l'algorithme de la Transformée de Hough pour la détection de lignes droites dans des images bruitées. Analyse de la complexité temporelle et implémentation de matrices d'accumulation pour améliorer la précision de détection.
-                </div>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2>Compétences Techniques</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                <div>
-                    <strong>Langages</strong>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">C</span>
-                        <span class="tech-tag">SQL</span>
-                    </div>
-                </div>
-                <div>
-                    <strong>Data & IA</strong>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Pandas / NumPy</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">YOLO</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                    </div>
-                </div>
-                <div>
-                    <strong>Outils & Env.</strong>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Git / GitHub</span>
-                        <span class="tech-tag">IntelliJ / VS Code</span>
-                        <span class="tech-tag">Linux</span>
-                        <span class="tech-tag">Docker</span>
-                    </div>
+    <section id="skills">
+        <h2 class="section-title">Expertise Technique</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <i class="fas fa-code"></i>
+                <h3>Développement</h3>
+                <div class="skill-list">
+                    Java, Python, C<br>
+                    Algorithmique Avancée<br>
+                    Programmation Orientée Objet
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="skill-category">
+                <i class="fas fa-brain"></i>
+                <h3>Data & IA</h3>
+                <div class="skill-list">
+                    OpenCV, YOLO<br>
+                    Pandas, NumPy<br>
+                    Traitement du Signal
+                </div>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-tools"></i>
+                <h3>Outils</h3>
+                <div class="skill-list">
+                    Git & GitHub<br>
+                    Linux / Bash<br>
+                    IntelliJ, VS Code
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>Contact : ilyass.elhadi2020@gmail.com</p>
-        <p>
-            <a href="https://www.linkedin.com/in/ilias-el-hadi-m12aaaa25" target="_blank">LinkedIn</a> • 
-            <a href="https://github.com/el-hadi21" target="_blank">GitHub</a>
-        </p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ilias-el-hadi-m12aaaa25" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/el-hadi21" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:ilyass.elhadi2020@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2024 Ilias El Hadi. Tous droits réservés.</p>
     </footer>
 
 </body>
