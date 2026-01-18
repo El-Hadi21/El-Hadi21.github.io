@@ -61,16 +61,15 @@
         }
         .nav-btn:hover { background: var(--primary); color: white; }
 
-        /* --- HERO SECTION (MODIFIÉE POUR LA PHOTO) --- */
+        /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh; /* S'adapte à la hauteur */
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 10% 60px; /* Padding ajusté pour la navbar */
+            padding: 120px 10% 60px;
             background: radial-gradient(circle at 70% 30%, rgba(0, 150, 199, 0.08), transparent 60%);
         }
 
-        /* Conteneur flexible pour le texte et l'image */
         .hero-container {
             display: flex;
             align-items: center;
@@ -80,11 +79,7 @@
             margin: 0 auto;
         }
 
-        /* Partie Texte (Gauche) */
-        .hero-content {
-            flex: 1; /* Prend l'espace disponible */
-            text-align: left; /* Alignement à gauche sur PC */
-        }
+        .hero-content { flex: 1; text-align: left; }
 
         .hero-content h1 {
             font-size: 3.5rem;
@@ -106,7 +101,6 @@
             font-weight: 300;
         }
 
-        /* Partie Image (Droite) */
         .hero-image-container {
             flex: 1;
             display: flex;
@@ -114,15 +108,14 @@
             align-items: center;
         }
 
-        /* Style de la photo d'identité */
         .profile-img {
-            width: 380px;  /* Taille de l'image sur PC */
+            width: 380px;
             height: 380px;
-            object-fit: cover; /* Assure que l'image ne soit pas déformée */
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Forme organique moderne */
-            border: 5px solid white; /* Bordure blanche */
-            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.25); /* Ombre portée bleue */
-            animation: float 6s ease-in-out infinite; /* Petite animation flottante */
+            object-fit: cover;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 5px solid white;
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.25);
+            animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -151,7 +144,7 @@
             color: var(--primary);
         }
 
-        /* --- ABOUT, PROJECTS, SKILLS (Pas de changement majeur ici) --- */
+        /* --- ABOUT & PROJECTS --- */
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .highlight-box { background: white; border-left: 5px solid var(--accent); padding: 2rem; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
 
@@ -159,10 +152,13 @@
         .project-card { background: var(--card-bg); padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; transition: 0.3s; }
         .project-card:hover { transform: translateY(-8px); border-color: var(--secondary); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         .project-card h3 { color: var(--primary); margin-bottom: 1rem; }
+        
         .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
         .tag { font-size: 0.75rem; padding: 5px 12px; border-radius: 20px; background: #e0f2fe; color: var(--primary); font-weight: 600; }
+        
         .project-link { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
 
+        /* --- SKILLS --- */
         .skills-container { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem; text-align: center; }
         .skill-category i { font-size: 2.5rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.5rem; }
         .skill-list { color: var(--text-muted); line-height: 1.8; }
@@ -170,21 +166,13 @@
         footer { text-align: center; padding: 3rem; background: var(--primary); color: white; margin-top: 4rem; }
         .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; opacity: 0.8; }
 
-        /* --- RESPONSIVE (Mobile) --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 968px) {
-            /* Sur tablette et mobile, on empile l'image et le texte */
-            .hero-container {
-                flex-direction: column-reverse; /* Image au-dessus du texte */
-                text-align: center;
-                gap: 3rem;
-            }
+            .hero-container { flex-direction: column-reverse; text-align: center; gap: 3rem; }
             .hero-content { text-align: center; }
             .hero-content p { margin-left: auto; margin-right: auto; }
             .hero-content h1 { font-size: 2.8rem; }
-            
-            /* Image plus petite sur mobile */
             .profile-img { width: 280px; height: 280px; }
-            
             .about-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             section { padding: 4rem 5%; }
@@ -207,7 +195,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Ingénieur Logiciel & <br><span>Cybersécurité</span></h1>
-                <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par la conception d'architectures sécurisées et le développement logiciel avancé.</p>
+                <p>Élève Ingénieur à Polytech Nice Sophia. Passionné par la conception d'architectures sécurisées, le DevOps et le développement logiciel avancé.</p>
                 <a href="#projects" class="btn-primary">Découvrir mes travaux</a>
             </div>
 
@@ -222,12 +210,12 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>Mon parcours en Classes Préparatoires aux Grandes Écoles (CPGE - MP) m'a forgé un esprit analytique rigoureux. Aujourd'hui, je mets cette rigueur au service de l'ingénierie logicielle.</p>
-                <p>Je m'intéresse particulièrement à la création de systèmes fiables, allant de l'algorithmique complexe aux protocoles de sécurité modernes.</p>
+                <p>Je m'intéresse particulièrement à la création de systèmes fiables, allant de l'algorithmique complexe à l'intégration continue et l'assurance qualité.</p>
             </div>
             <div class="highlight-box">
                 <h3 style="color: var(--primary);">📍 Objectif Professionnel</h3>
                 <p style="margin-top: 10px; color: var(--text-muted);">Recherche d'une <strong>alternance de 24 mois</strong> à partir de Septembre 2026.</p>
-                <p style="margin-top: 5px; font-weight: 500;">Secteurs : Cybersécurité, Backend, Data.</p>
+                <p style="margin-top: 5px; font-weight: 500;">Secteurs : Cybersécurité, Backend, DevOps.</p>
             </div>
         </div>
     </section>
@@ -236,25 +224,27 @@
         <h2 class="section-title">Réalisations</h2>
         <div class="projects-grid">
             <article class="project-card">
+                <h3><i class="fas fa-chess-board"></i> Jeu Takenoko & DevOps</h3>
+                <div class="tech-tags">
+                    <span class="tag">Java 21</span>
+                    <span class="tag">Maven</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Mockito</span>
+                    <span class="tag">SonarQube</span>
+                </div>
+                <p style="color: var(--text-muted);">Implémentation du jeu de plateau Takenoko avec une approche Software Craftsmanship. Pipeline CI/CD complet, conteneurisation Docker, analyse statique (Sonar) et tests avancés (Mockito).</p>
+                <a href="https://github.com/salondryas/takenoko-parallel" target="_blank" class="project-link">Voir le code <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="project-card">
                 <h3><i class="fas fa-cube"></i> Moteur de Poker</h3>
                 <div class="tech-tags">
                     <span class="tag">Java</span>
                     <span class="tag">JUnit</span>
                     <span class="tag">POO</span>
                 </div>
-                <p style="color: var(--text-muted);">Conception d'un moteur de jeu Poker robuste. Implémentation de règles métiers complexes et validation par tests unitaires </p>
+                <p style="color: var(--text-muted);">Conception d'un moteur de jeu Poker robuste. Implémentation de règles métiers complexes et validation par tests unitaires.</p>
                 <a href="https://github.com/salondryas/Jeu-de-Poker" target="_blank" class="project-link">Voir le code <i class="fas fa-arrow-right"></i></a>
-            </article>
-
-            <article class="project-card">
-                <h3><i class="fas fa-eye"></i> Vision & IA Sportive</h3>
-                <div class="tech-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">OpenCV</span>
-                    <span class="tag">YOLO</span>
-                </div>
-                <p style="color: var(--text-muted);">Système intelligent de découpage vidéo. Utilisation de réseaux de neurones pour la détection de joueurs et segmentation par couleur de t-shirt.</p>
-                <span class="project-link" style="opacity: 0.6; cursor: default; color: var(--text-muted);">Projet Personnel</span>
             </article>
 
             <article class="project-card">
@@ -276,17 +266,17 @@
             <div class="skill-category">
                 <i class="fas fa-laptop-code"></i>
                 <h3>Développement</h3>
-                <div class="skill-list">Java, Python, C, JavaScript, HTML5, CSS<br>Architecture Logicielle<br>Programmation Système</div>
+                <div class="skill-list">Java (21), Python, C, JavaScript<br>Architecture Logicielle<br>Tests (JUnit 5, Mockito)</div>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-server"></i>
+                <h3>DevOps & Outils</h3>
+                <div class="skill-list">Docker, Maven, Git<br>SonarQube, CI/CD<br>Environnement Linux</div>
             </div>
             <div class="skill-category">
                 <i class="fas fa-shield-alt"></i>
                 <h3>Sécurité & Data</h3>
-                <div class="skill-list">OpenCV, Numpy, YOLO<br>Traitement du Signal<br>Protocoles Réseaux</div>
-            </div>
-            <div class="skill-category">
-                <i class="fas fa-terminal"></i>
-                <h3>Outils</h3>
-                <div class="skill-list">Git & GitHub<br>Environnement Linux<br>IntelliJ, VS Code</div>
+                <div class="skill-list">Protocoles Réseaux<br>Traitement du Signal<br>Numpy, Analyse de données</div>
             </div>
         </div>
     </section>
@@ -297,7 +287,7 @@
             <a href="https://github.com/el-hadi21" target="_blank"><i class="fab fa-github"></i></a>
             <a href="mailto:ilyass.elhadi2020@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">&copy; 2024 Ilias El Hadi. Élève Ingénieur Polytech Nice Sophia.</p>
+        <p style="margin-top: 20px; opacity: 0.8; font-size: 0.9rem;">&copy; 2026 Ilias El Hadi. Élève Ingénieur Polytech Nice Sophia.</p>
     </footer>
 
 </body>
